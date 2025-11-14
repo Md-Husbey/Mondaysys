@@ -1,0 +1,361 @@
+    body {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+        
+        
+        
+.timeline {
+        position: relative; /* Lets child elements (like lines/dots) position absolutely inside. */
+      
+        padding-bottom: 2rem; /* Adds extra space at the bottom of the timeline. */
+    }
+
+
+.timeline-item {
+        position: relative;
+        padding-left: 40px; /* Space for the dot and line */
+        /* No bottom margin needed here anymore */
+    }
+    
+    /* This rule adds the space between items */
+    .timeline-item:not(:last-child) {
+        margin-bottom: 3rem;   /* Adds vertical spacing between timeline items, except the last one. */
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #FF4C41; /* Inner salmon dot */
+
+        border: 4px solid #FFBDB3; /* Lighter outer ring */
+
+        /* This ensures the dot is on top of the line */
+        z-index: 1;
+    }
+    
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: 8px; /* Aligns horizontally with the dot's center */
+        top: 25px; /* Starts just below the dot */
+        width: 2px;
+        background-color: #000000;
+       
+        height: calc(100% + 2rem);
+        
+        /* This ensures the line is behind the dot */
+        z-index: 0;
+    }
+
+    .timeline-item:last-child::after {
+        display: none;
+    }
+    
+
+    .timeline-content{
+        width: 576px;
+        height: 110px;
+        gap: 20px;
+
+        opacity: 1;
+
+    }
+
+    /* --- Content Styling (No changes) --- */
+    .timeline-content h3 {
+        /* font-size: 1.25rem; */
+        /* font-weight: 700; */
+        color: #1A1A1A;
+        /* margin: 0 0 0.5rem 0; */
+        width: 576;
+        height: 17;
+
+        opacity: 1;
+        font-family: Roboto;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+
+        line-height: 24px;
+        letter-spacing: 0.32px;
+        vertical-align: middle;
+
+
+    }
+
+    .timeline-content ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .timeline-content li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content li:last-child {
+        margin-bottom: 0;
+    }
+
+        /* Page Layout */
+        .page-container {
+    width: 1440px;
+    height: 1233px;
+    display: flex;
+    transform: rotate(0deg);
+    opacity: 1;
+    gap: 64px;
+    padding: 80px;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: flex-end;
+    align-items: stretch;
+}
+
+        .content-wrapper {
+            width: 608px;
+            height: 1073px;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .column-left {
+    flex: 1; /* takes remaining space */
+}
+
+.column-right {
+    flex: 0; /* content takes only its width */
+    margin-left: auto; /* pushes it to the right */
+}
+
+        /* Utility Styles */
+        .text-muted {
+            color: #6c757d;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        
+        .image-stack-container {
+             position: relative; /* Defines the positioning area */
+             width: 608px;
+            height: 582px;
+   }
+
+        .main-image {
+             width: 100%;
+             height: auto;
+             border-radius: 8px;
+             display: block;
+       }
+
+.overlay-image {
+  position: absolute; 
+  bottom: -98px;      
+  right: -23px;          
+  width: 260px;
+  height: 260px;
+}
+ /* --- Main Tips Box Container --- */
+        /*
+            Specs Used:
+            width: 608px;
+            border-radius: 8px;
+            padding: 12px;
+            gap: 16px; 
+            (Note: height is set to 'auto' to fit content, 
+            which is better than a fixed 165px)
+        */
+        .tips-box {
+            width: 608px;
+            background-color: #FFF7ED; /* Sampled from image */
+            border-radius: 8px;
+            padding: 12px;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+            
+            /* Use flex to create the 16px gap between h5 and ul */
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* --- Heading (h5 tag) --- */
+        /*
+            Specs Used:
+            font-family: Roboto;
+            font-weight: 600; (from "SemiBold")
+            font-size: 18px;
+            line-height: 19.2px;
+            letter-spacing: 0%;
+            color: #000000;
+        */
+        .tips-box h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 19.2px;
+            letter-spacing: 0;
+            color: #000000;
+            margin: 0; /* Resets default browser margin */
+        }
+
+        /* --- List (ul tag) --- */
+        /*
+            Specs Used:
+            width: 584px; (Achieved by parent width and padding)
+            gap: 24px; (Space between list items)
+        */
+        .tips-box ul {
+            margin: 0;
+            /* Adjust padding to align bullets visually */
+            padding-left: 20px; 
+            
+            /* Use flex to create the 24px gap between li items */
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* --- List Items (li tag) --- */
+        /*
+            Specs Used:
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            color: #000000;
+        */
+        .tips-box li {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%; /* 16px * 1.5 = 24px */
+            letter-spacing: 0;
+            color: #000000;
+            
+            /* Improves bullet point alignment */
+            padding-left: 4px; 
+        }
+.call-to-action-block {
+    display: flex;
+    width: 455px;
+    height: 113px;
+    flex-direction: column;  /* Stacks the button and list vertically */
+    align-items: center;     /* Centers them horizontally */
+    /* width: 100%;             Takes the full width of its parent */
+    padding: 20px;           /* Adds some space around */
+    box-sizing: border-box;  /* Ensures padding doesn't add to width */
+}
+  .btn-custom-red {
+    /* Flexbox for perfect centering of text and icon */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Responsive Sizing: Use padding and max-width */
+    padding: 12px 30px;
+    width: 455px;   
+    height: 48px;        /* Button will fill its container */
+    /* max-width: 455px;      But won't get wider than this */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+
+    /* Colors & Border to match image */
+    background-color: #ff0000;
+    color: #120e0e;             /* Black text */
+    border: 3px solid #120e0e; /* Thick black border */
+
+    /* Shape & Text Styling */
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease; /* Smooth hover effect */
+}
+
+.infinity-symbol {
+    font-size: 4.5rem;      /* Makes the symbol a bit larger */
+    line-height: 1;         /* Helps with vertical alignment */
+    margin-left: 10px;      /*Adds space between text and symbol */
+    width: 32.03;
+    height: 14.56;
+
+    opacity: 1;
+    top: 0.57px;
+    left: 0.49px;
+    color: #202020;
+
+}
+
+      
+       
+.features-list {
+    display: flex;
+    flex-wrap: wrap;         /* Allows items to wrap */
+    justify-content: center; /* This centers all lines horizontally */
+
+    margin-top: 30px;
+    
+    /* This creates the spacing */
+    /* row-gap: 15px; (for vertical space) */
+    /* column-gap: 35px; (for horizontal space) */
+    gap: 15px 35px; 
+
+    /* Text styles */
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.features-list p:nth-child(3) {
+    /* This forces the item to a new line */
+    flex-basis: 100%;
+
+    /* This centers the item within its new 100%-width line */
+    justify-content: center;
+}
+
+.features-list p {
+    display: flex;
+    align-items: center;
+    margin: 0; 
+}
+
+
+.features-list span {
+    color: #FF4C41; /* Salmon-red color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 8px;
+    position: relative;
+    top: -2px; 
+}
+ .class-icon{
+        font-size: 2rem;
+
+        padding-bottom: .5rem;
+ }
